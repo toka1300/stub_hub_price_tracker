@@ -2,8 +2,38 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# db/seeds.rb
+
+Event.create([
+  {
+    name: "Concert of the Century",
+    date: "2024-12-15",
+    venue: "Madison Square Garden",
+    live_price_cad: 150,
+    live_price_usd: 110,
+    url: "https://www.stubhub.com/concert-of-the-century",
+    event_id: "event001",
+    image_url: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    name: "Broadway Musical Night",
+    date: "2024-12-20",
+    venue: "Broadway Theater",
+    live_price_cad: 200,
+    live_price_usd: 150,
+    url: "https://www.stubhub.com/broadway-musical-night",
+    event_id: "event002",
+    image_url: "https://images.pexels.com/photos/11534855/pexels-photo-11534855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    name: "Sports Finals",
+    date: "2024-12-25",
+    venue: "Wembley Stadium",
+    live_price_cad: 300,
+    live_price_usd: 220,
+    url: "https://www.stubhub.com/sports-finals",
+    event_id: "event003",
+    image_url: "https://example.com/images/sports_finals.jpg"
+  }
+])

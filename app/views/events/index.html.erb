@@ -1,0 +1,7 @@
+<h1>All Events</h1>
+<% @events.each do |event| %>
+    <h3><%= event.name %></h3>
+    <div> <strong>Date: </strong> <%= event.date %> </div>
+    <div> <strong>Venue: </strong> <%= event.venue %> </div>
+    <div> <strong>Price: </strong> <%= event.live_price_cad %> </div>
+<% end %>

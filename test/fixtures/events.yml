@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_name: MyString
+  date: 2024-12-03
+  venue: MyString
+  live_price_cad: 1
+  url: MyString
+  event_id: MyString
+  live_price_usd: MyString
+
+two:
+  event_name: MyString
+  date: 2024-12-03
+  venue: MyString
+  live_price_cad: 1
+  url: MyString
+  event_id: MyString
+  live_price_usd: MyString
