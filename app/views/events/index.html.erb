@@ -1,8 +1,20 @@
 <h1>All Events</h1>
+
+<div><%= link_to 'Add New Event', new_event_path %></div>
+
 <% @events.each do |event| %>
     <h3><%= event.name %></h3>
     <div> <strong>Date: </strong> <%= event.date %> </div>
     <div> <strong>Venue: </strong> <%= event.venue %> </div>
     <div> <strong>Price: </strong> <%= event.live_price_cad %> </div>
     <div> <strong>Event Type: </strong> <%= event.event_type %> </div>
+    <div><%= link_to "Show Event", event %></div>
+    <%= link_to "Edit Event", edit_event_path(event) %>
+    <div>
+        <%= link_to "Delete Event", event_path(event), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+
+    </div>
 <% end %>

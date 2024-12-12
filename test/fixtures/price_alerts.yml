@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  alert_price: 1
-  alert_user: 
+# one:
+#   alert_price: 1
+#   alert_user: 
 
-two:
-  alert_price: 1
-  alert_user: 
+# two:
+#   alert_price: 1
+#   alert_user: 

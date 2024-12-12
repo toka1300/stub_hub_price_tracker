@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  event_name: MyString
+  name: "Nickelback"
   date: 2024-12-03
-  venue: MyString
-  live_price_cad: 1
-  url: MyString
-  event_id: MyString
-  live_price_usd: MyString
+  venue: "Corel Center"
+  live_price_cad: 100
+  url: "test.com"
+  event_id: 12345
+  live_price_usd: 80
 
 two:
-  event_name: MyString
+  name: "Maroon 5"
   date: 2024-12-03
-  venue: MyString
-  live_price_cad: 1
-  url: MyString
-  event_id: MyString
-  live_price_usd: MyString
+  venue: "ACC"
+  live_price_cad: 19
+  url: "url.com"
+  event_id: 1241234
+  live_price_usd: 22

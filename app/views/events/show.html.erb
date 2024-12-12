@@ -1,0 +1,18 @@
+<h1>Show a specific event details</h1>
+
+<h3><%= @event.name %></h3>
+<div> <strong>Date: </strong> <%= @event.date %> </div>
+<div> <strong>Venue: </strong> <%= @event.venue %> </div>
+<div> <strong>Price: </strong> <%= @event.live_price_cad %> </div>
+<div> <strong>Event Type: </strong> <%= @event.event_type %> </div>
+
+<ul>
+    <li><%= link_to "Edit Event", edit_event_path(@event) %></li>
+    <li>
+        <%= link_to "Delete Event", event_path(@event), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+
+    </li>
+</ul>

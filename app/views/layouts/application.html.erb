@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Stub Hub Price Tracker Rails" %></title>
+    <title><%= content_for(:title) || "StubHub Price Tracker" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -18,6 +18,10 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to 'Home', root_path %>
+      <%# TODO: link_to 'My Account', users_path(current_user) %>
+    </nav>
     <%= yield %>
 
     <p class="notice"><%= notice %></p>

@@ -1,0 +1,22 @@
+<% content_for :title, @price_alert.event.name %>
+
+<h1>Show a specific price alert</h1>
+
+<h3><%= @price_alert.event.name %></h3>
+<div> <strong>Date: </strong> <%= @price_alert.event.date %> </div>
+<div> <strong>Venue: </strong> <%= @price_alert.event.venue %> </div>
+<div> <strong>Live Price: </strong> <%= @price_alert.event.live_price_cad %> </div>
+<div> <strong>Alert Price: </strong> <%= @price_alert.alert_price %> </div>
+<div> <strong>Event Type: </strong> <%= @price_alert.event.event_type %> </div>
+<div> <strong>User Email: </strong> <%= @price_alert.user.email %> </div>
+
+<ul>
+    <li><%= link_to "Edit Alert", edit_price_alert_path(@price_alert) %></li>
+    <li>
+        <%= link_to "Delete Alert", price_alert_path(@price_alert), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %>
+
+    </li>
+</ul>

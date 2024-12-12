@@ -13,6 +13,7 @@ Event.create([
     live_price_cad: 150,
     live_price_usd: 110,
     url: "https://www.stubhub.com/concert-of-the-century",
+    event_type: "sports",
     event_id: "event001",
     image_url: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
@@ -23,6 +24,7 @@ Event.create([
     live_price_cad: 200,
     live_price_usd: 150,
     url: "https://www.stubhub.com/broadway-musical-night",
+    event_type: "sports",
     event_id: "event002",
     image_url: "https://images.pexels.com/photos/11534855/pexels-photo-11534855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
@@ -33,6 +35,7 @@ Event.create([
     live_price_cad: 300,
     live_price_usd: 220,
     url: "https://www.stubhub.com/sports-finals",
+    event_type: "sports",
     event_id: "event003",
     image_url: "https://example.com/images/sports_finals.jpg"
   }
