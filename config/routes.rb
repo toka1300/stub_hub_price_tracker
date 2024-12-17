@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :price_alerts
+  resources :events, :price_alerts
 
-  get "/users", to: "users#index"
-  get "/users/:id", to: "users#show"
+  get "/contact", to: "static_pages#contact"
+  get "/help", to: "static_pages#help"
+  get "/signup", to: "users#new"
 
   root "price_alerts#index"
 end
