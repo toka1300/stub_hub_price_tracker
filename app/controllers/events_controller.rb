@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to events_path, status: :see_other
   end
 
   private

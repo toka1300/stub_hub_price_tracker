@@ -1,0 +1,34 @@
+    <header id="cs-navigation">
+        <div class="cs-container">
+          <%= link_to root_path, class: "cs-logo" do %>
+            <%= image_tag 'logo.svg' %>
+          <% end%>
+            <!--Mobile Nav Toggle-->
+            <button class="cs-toggle" aria-label="mobile menu toggle">
+              <div class="cs-box" aria-hidden="true">
+                <span class="cs-line cs-line1" aria-hidden="true"></span>
+                <span class="cs-line cs-line2" aria-hidden="true"></span>
+                <span class="cs-line cs-line3" aria-hidden="true"></span>
+              </div>
+            </button>
+
+            <div class="cs-ul-wrapper">
+              <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                <li class="cs-li">
+                    <%= link_to 'Home', root_path, class: "cs-li-link cs-active" %>
+                </li>
+                <li class="cs-li">
+                    <%= link_to 'Events', events_path, class: "cs-li-link" %>
+                </li>
+                <li class="cs-li">
+                    <%= link_to 'Help', '#', class: "cs-li-link" %>
+                </li>
+                <li class="cs-li">
+                    <%= link_to 'Sign Up', '#', class: "cs-li-link" %>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <%= link_to 'Log in', root_path, class: "cs-button-solid cs-nav-button" %>
+      </div>
+    </header>

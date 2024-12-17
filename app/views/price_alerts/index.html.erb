@@ -1,23 +1,41 @@
-<h1>All Price Alerts</h1>
+<!-- ============================================ -->
+<!--                  Cards                       -->
+<!-- ============================================ -->
 
-<%= link_to 'Add Price Alert', new_price_alert_path %>
-<div><%= link_to 'Add New Event', new_event_path %></div>
-
-<% @price_alerts.each do |alert| %>
-    <h2><%= alert.event.name %> </h2>
-    <ul>
-        <li> <strong>Date: </strong> <%= alert.event.date %> </li>
-        <li> <strong>Venue: </strong> <%= alert.event.venue %> </li>
-        <li> <strong>Live Price: </strong> <%= alert.event.live_price_cad %> </li>
-        <li> <strong>Alert Price: </strong> <%= alert.alert_price %> </li>
-        <li> <strong>Event Type: </strong> <%= alert.event.event_type %> </li>
-        <li> <strong>User Email: </strong> <%= alert.user.email %> </li>
-    </ul>
-    <%= link_to 'Show Alert', alert %>
-    <div>
-        <%= link_to "Delete Event", price_alert_path(alert), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                    } %>
+<section id="services-2129">
+    <div class="cs-container">
+        <div class="cs-content">
+            <%= link_to 'Add Price Alert', new_price_alert_path %>
+            <div><%= link_to 'Add New Event', new_event_path %></div>
+            <h2 class="cs-title">Sports</h2>
+        </div>                  
+        <ul class="cs-card-group">
+            <% @price_alerts.each do |alert| %>
+                <li class="cs-item">
+                    <a href="" class="cs-link">
+                        <picture class="cs-picture">
+                            <%= image_tag alert.event.image_url %>
+                        </picture>
+                        <h3 class="cs-h3"><%= alert.event.name %></h3>
+                        <ul class="cs-item-text">
+                            <li> <strong>Date: </strong> <%= alert.event.date %> </li>
+                            <li> <strong>Venue: </strong> <%= alert.event.venue %> </li>
+                            <li> <strong>Live Price: </strong> <%= alert.event.live_price_cad %> </li>
+                            <li> <strong>Alert Price: </strong> <%= alert.alert_price %> </li>
+                            <li> <strong>Event Type: </strong> <%= alert.event.event_type %> </li>
+                            <li> <strong>User Email: </strong> <%= alert.user.email %> </li>
+                        </ul>
+                        <%= link_to 'Show Alert', alert %>
+                        <div>
+                            <%= link_to "Delete Event", price_alert_path(alert), data: {
+                                        turbo_method: :delete,
+                                        turbo_confirm: "Are you sure?"
+                                        } %>
+                        </div>
+                    </a>
+                </li>
+            <% end %>
+        </ul>
     </div>
-<% end %>
+</section>
+                                

@@ -13,17 +13,16 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= render 'layouts/shim' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', root_path %>
-      <%# TODO: link_to 'My Account', users_path(current_user) %>
-    </nav>
+    <%= render 'layouts/header' %>
     <%= yield %>
-
+    <%= render 'layouts/footer' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
