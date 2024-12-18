@@ -1,5 +1,5 @@
-@import '/app/assets/stylesheets/components/index.css';
-@import '/app/assets/stylesheets/pages/index.css';
+@import 'components/index.css';
+@import 'pages/index.css';
 
 :root {
     --primary: #ff6a3e;
