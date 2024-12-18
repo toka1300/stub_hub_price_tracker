@@ -37,6 +37,6 @@ Event.create([
     url: "https://www.stubhub.com/sports-finals",
     event_type: "sports",
     event_id: "event003",
-    image_url: "https://example.com/images/sports_finals.jpg"
+    image_url: "https://images.pexels.com/photos/26840203/pexels-photo-26840203/free-photo-of-ice-hockey-game.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
 ])

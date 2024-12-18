@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      redirect_to @price_alert
+      redirect_to @event
     else
       render :new, status: :unprocessable_entity
     end
