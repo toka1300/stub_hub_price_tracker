@@ -42,8 +42,9 @@ class EventsController < ApplicationController
     redirect_to events_path, status: :see_other
   end
 
-  private
-  def event_params
-    params.require(:event).permit(:name, :date, :venue, :live_price_cad, :live_price_usd, :url, :event_id, :image_url, :event_type)
-  end
+    private
+    def event_params
+      params.require(:event).permit(:name, :date, :venue, :live_price_cad,
+                                    :live_price_usd, :url, :event_id, :image_url, :event_type)
+    end
 end

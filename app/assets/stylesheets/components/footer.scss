@@ -1,0 +1,119 @@
+/*-- -------------------------- -->
+<---           Footer           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px - Contains hover state */
+@media only screen and (min-width: 0rem) {
+    #cs-footer-105 {
+        padding: calc(40 / 16 * 1em) calc(16 / 16 * 1em) calc(20 / 16 * 1rem);
+
+        .cs-container {
+            width: 100%;
+            max-width: calc(1280 / 16 * 1rem);
+            margin: auto;
+        }
+
+        .cs-ul {
+            padding: 0 0 calc(40 / 16 * 1rem);
+            margin: auto;
+            border-bottom: 1px solid #eff0f6;
+        }
+
+        .cs-li {
+            list-style: none;
+            text-align: center;
+            margin-bottom: calc(20 / 16 * 1rem);
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-link {
+            /* 15px - 17px */
+            font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+            line-height: 1.5em;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--headerColor);
+            position: relative;
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+
+            &:before {
+                /* top right box */
+                content: "";
+                width: 0%;
+                height: calc(3 / 16 * 1rem);
+                background: var(--headerColor);
+                opacity: 1;
+                position: absolute;
+                display: block;
+                bottom: calc(-2 / 16 * 1rem);
+                left: 0;
+                transition: width 0.3s;
+            }
+        }
+
+        .cs-bottom {
+            margin-top: calc(20 / 16 * 1rem);
+            display: flex;
+            /* set everyone to position on the left side */
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .cs-copyright {
+            font-size: calc(15 / 16 * 1rem);
+            text-align: center;
+            color: #a0a3bd;
+            display: block;
+            /* margin right auto on a flexbox pushes everyone else to the right */
+            margin: 0 auto 0 0;
+        }
+
+        .cs-social-link {
+            width: calc(20 / 16 * 1rem);
+            height: calc(20 / 16 * 1rem);
+            margin-left: 12/16rem;
+            background: #a0a3bd;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: calc(11 / 16 * 1rem);
+                width: auto;
+            }
+        }
+    }
+}
+
+/* Tablet - 700px */
+@media only screen and (min-width: 43.75rem) {
+    #cs-footer-105 {
+        .cs-ul {
+            display: flex;
+            /* push everything to the left */
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .cs-li {
+            /* 45px - 88px */
+            margin: 0 clamp(2.8125rem, 7vw, 5.5rem) 0 0;
+            &:last-of-type {
+                margin: 0;
+                /* margin-left auto will push everything away and force it to the farthest 
+                   right edge */
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+                                

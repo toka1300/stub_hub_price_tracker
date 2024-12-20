@@ -76,6 +76,8 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
     ast (2.4.2)
+    autoprefixer-rails (10.4.19.0)
+      execjs (~> 2)
     base64 (0.2.0)
     bcrypt (3.1.18)
     benchmark (0.4.0)
@@ -83,6 +85,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     brakeman (6.2.2)
       racc
     builder (3.3.0)
@@ -105,6 +110,7 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
+    execjs (2.10.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -292,6 +298,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.0)
     selenium-webdriver (4.27.0)
       base64 (~> 0.2)
@@ -353,6 +361,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (= 3.1.18)
   bootsnap
+  bootstrap-sass (= 3.4.1)
   brakeman
   capybara
   debug
