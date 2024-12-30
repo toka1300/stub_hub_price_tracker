@@ -1,5 +1,5 @@
-@import 'components/index.css';
-@import 'pages/index.css';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 :root {
     --primary: #ff6a3e;
@@ -169,8 +169,18 @@ body {
         font-size: 0.55vw;
     }
 }
+
+/* TEMPORARY */
                                   
 .temp-pages h1 {
-    margin: 2rem 0;
+    margin: 6rem 1rem 2rem 1rem;
     font-size: 2rem;
-}                           
+}
+
+.debug_dump {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin: 2rem 1rem;
+    padding: 0.25rem 1rem;
+  }
