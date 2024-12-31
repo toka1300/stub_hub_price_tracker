@@ -1,0 +1,55 @@
+<section id="contact-1442">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Welcome Back!</span>
+            <h2 class="cs-title">Log in</h2>
+        </div>
+        <div class="cs-contact-group">
+            <p class="cs-text">
+                There are many variations of passages of available but the majority have suffered alteration in some form, by injected randomized words even slightly believable.
+            </p>
+            <ul class="cs-ul">
+                <li class="cs-li">
+                    <picture class="cs-icon-wrapper">
+                        <img aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-yellow.svg" alt="phone icon" class="cs-icon" width="40" height="40" decoding="async">
+                    </picture>
+                    <div class="cs-flex-group">
+                        <span class="cs-header">Phone</span>
+                        <a href="tel:888-4565-789
+                        " class="cs-link">+1 (888) 4565 789
+                        </a>
+                    </div>
+                </li>
+                <li class="cs-li">
+                    <picture class="cs-icon-wrapper">
+                        <img aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/pin-yellow.svg" alt="address icon" class="cs-icon" width="40" height="40" decoding="async">
+                    </picture>
+                    <div class="cs-flex-group">
+                        <span class="cs-header">Address</span>
+                        <a href="mailto:Email@stitch.com" class="cs-link">121 King St, Melbourne, Australia</a>
+                    </div>
+                </li>
+            </ul>
+            <picture class="cs-background">
+                <!--Mobile Image-->
+                <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/wind-turbine.jpg">
+                <!--Tablet and above Image-->
+                <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/wind-turbine.jpg">
+                <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/wind-turbine.jpg" alt="wind turbine" width="650" height="613">
+            </picture>
+        </div>
+        <!--Form-->
+        <%= form_with(url: login_path, class: "cs-form", scope: :session, id: "cs-form-1442") do |f| %>
+            <%= f.label :email, class: "cs-label" %>
+            <%= f.email_field :email, class: "cs-input form-control" %>
+
+            <%= f.label :password, class: "cs-label" %>
+            <%= f.password_field :password, class: "cs-input form-control" %>
+
+            <%= f.submit "Log in", class: "cs-button-solid" %>
+            
+            <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+        <% end %>
+        
+    </div>
+</section>

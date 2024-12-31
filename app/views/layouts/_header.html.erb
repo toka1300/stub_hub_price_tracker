@@ -3,6 +3,7 @@
           <%= link_to root_path, class: "cs-logo" do %>
             <%= image_tag 'logo.svg' %>
           <% end%>
+          <nav class="cs-nav" role="navigation">
             <!--Mobile Nav Toggle-->
             <button class="cs-toggle" aria-label="mobile menu toggle">
               <div class="cs-box" aria-hidden="true">
@@ -26,12 +27,29 @@
                 <li class="cs-li">
                     <%= link_to 'Contact', contact_path, class: "cs-li-link" %>
                 </li>
-                <li class="cs-li">
-                    <%= link_to 'Sign Up', signup_path, class: "cs-li-link" %>
-                </li>
               </ul>
             </div>
           </nav>
-          <%= link_to 'Log in', root_path, class: "cs-button-solid cs-nav-button" %>
+          <% if logged_in? %>
+            <li class="cs-li cs-dropdown" tabindex="0">
+              <span class="cs-li-link">Account
+                  <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-red.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+              </span>
+              <ul class="cs-drop-ul">
+                  <li class="cs-drop-li">
+                    <%= link_to "Profile", user_path(current_user), class: "cs-li-link cs-drop-link" %>
+                  </li>
+                  <li class="cs-drop-li">
+                    <%= link_to "Settings", "#", class: "cs-li-link cs-drop-link" %>
+                  </li>
+                  <li class="cs-drop-li">
+                  <%= button_to "Log out", logout_path, method: :delete, data: { turbo: true },
+                                                        class: "cs-drop-button cs-li-link cs-drop-link" %>
+                  </li>
+              </ul>
+            </li>
+          <% else %>
+            <%= link_to 'Log in/Sign up', login_path, class: "cs-button-solid cs-nav-button" %>
+          <% end %>
       </div>
     </header>
