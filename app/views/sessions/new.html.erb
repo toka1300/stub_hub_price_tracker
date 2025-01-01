@@ -46,8 +46,11 @@
             <%= f.label :password, class: "cs-label" %>
             <%= f.password_field :password, class: "cs-input form-control" %>
 
+            <%= f.label :remember_me, class: "checkbox" do %>
+                <%= f.check_box :remember_me %>
+                <span>Remember me</span>
+            <% end %>
             <%= f.submit "Log in", class: "cs-button-solid" %>
-            
             <p>New user? <%= link_to "Sign up now!", signup_path %></p>
         <% end %>
         

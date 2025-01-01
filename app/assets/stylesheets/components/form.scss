@@ -10,7 +10,6 @@
       
       .cs-container {
           width: 100%;
-          /* changes to 1280px at tablet */
           max-width: calc(584 / 16 * 1rem);
           margin: auto;
           display: flex;
@@ -18,19 +17,16 @@
           align-items: stretch;
           flex-direction: column;
           column-gap: auto;
-          /* 48px - 64px */
           row-gap: clamp(2rem, 3vw, 3rem);
           column-gap: calc(20 / 16 * 1rem);
           position: relative;
       }
 
       .cs-content {
-          /* set text align to left if content needs to be left aligned */
           text-align: center;
           width: 100%;
           display: flex;
           flex-direction: column;
-          /* centers content horizontally, set to flex-start to left align */
           align-items: center;
       }
 
@@ -47,10 +43,8 @@
           width: 100%;
           max-width: calc(650 / 16 * 1rem);
           min-height: calc(500 / 16 * 1rem);
-          /* 24px - 32px */
           padding: clamp(1.5rem, 2.5vw, 2rem);
           padding-top: calc(150 / 16 * 1rem);
-          /* prevents padding from affecting height and width */
           box-sizing: border-box;
           border-radius: calc(24 / 16 * 1rem);
           overflow: hidden;
@@ -58,7 +52,6 @@
           flex-direction: column;
           justify-content: flex-end;
           gap: calc(32 / 16 * 1rem);
-          /* sends it to the bottom in the 3rd position */
           order: 3;
           position: relative;
           z-index: 1;
@@ -276,6 +269,11 @@
               color: #fff;
               cursor: pointer;
           }
+      }
+
+      .checkbox {
+        width: 100%;
+        margin: 0 0 0 1.5rem;
       }
   }
 }
