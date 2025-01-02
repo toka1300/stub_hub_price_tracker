@@ -1,6 +1,6 @@
 <section class="temp-pages">
     <div class="container">
-        <% content_for :title, @price_alert.event.name %>
+        <% provide :title, @price_alert.event.name %>
         
         <h1>Show a specific price alert</h1>
         <h3><%= @price_alert.event.name %></h3>

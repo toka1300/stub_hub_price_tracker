@@ -1,0 +1,16 @@
+<%= form_with(model: @user, class: "cs-form", id: "cs-form-1442") do |f| %>
+    <%= render "shared/error_messages" %>
+    <%= f.label :name, class: "cs-label" %>
+    <%= f.text_field :name, class: "cs-input form-control" %>
+
+    <%= f.label :email, class: "cs-label" %>
+    <%= f.email_field :email, class: "cs-input form-control" %>
+
+    <%= f.label :password, class: "cs-label" %>
+    <%= f.password_field :password, class: "cs-input form-control" %>
+
+    <%= f.label :password_confirmation, class: "cs-label" %>
+    <%= f.password_field :password_confirmation, class: "cs-input form-control" %>
+
+    <%= f.submit "#{yield(:verb)} my account", class: "cs-button-solid" %>
+<% end %>

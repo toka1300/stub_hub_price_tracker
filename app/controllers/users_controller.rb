@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # reset_session
-      # log_in @user
+      reset_session
+      log_in @user
       flash[:success] = "You have been successfully registered, thank you!"
       redirect_to @user
     else
@@ -24,6 +24,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      # Go to user page
+    else
+      render "edit", status: :unprocessable_entity
+    end
   end
 
   private
