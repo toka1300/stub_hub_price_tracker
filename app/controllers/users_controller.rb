@@ -31,7 +31,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      # Go to user page
+      flash[:success] = "Profile updated"
+      redirect_to @user
     else
       render "edit", status: :unprocessable_entity
     end
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
   # Confirms a logged-in user.
   def logged_in_user
     unless logged_in?
+      store_location
       flash[:danger] = "Please log in."
       redirect_to login_url, status: :see_other
     end
