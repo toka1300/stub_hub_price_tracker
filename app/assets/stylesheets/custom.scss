@@ -175,6 +175,16 @@ body {
 .temp-pages h1 {
     margin: 6rem 1rem 2rem 1rem;
     font-size: 2rem;
+    margin: 0;
+    li {
+        overflow: auto;
+        padding: 10px 0;
+        border-bottom: 1px solid $gray-lighter;
+      }
+}
+
+.users {
+    list-style-type: none;
 }
 
 .debug_dump {
