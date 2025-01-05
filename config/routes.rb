@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   delete "/logout",  to: "sessions#destroy"
 
   resources :events, :price_alerts, :users
+  resources :account_activations, only: [ :edit ]
   root "price_alerts#index"
 end
