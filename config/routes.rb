@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :events, :price_alerts, :users
   resources :account_activations, only: [ :edit ]
+  resources :password_resets, only: [ :new, :create, :edit, :update ]
   root "price_alerts#index"
 end
