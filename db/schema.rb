@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_05_221736) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_07_140951) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_05_221736) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "reset_digest"
+    t.string "reset_sent_at"
+    t.string "datetime"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

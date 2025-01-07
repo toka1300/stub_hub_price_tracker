@@ -1,2 +1,28 @@
-<h1>PasswordResets#new</h1>
-<p>Find me in app/views/password_resets/new.html.erb</p>
+
+<% provide(:title, "Forgot password") %>
+
+<section id="cta-1612">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">Forgot Your Password?</h2>
+            <p class="cs-text">
+                No worries, I do it too! Simply input your email below and we will send you some instructions on how to reset it.
+            </p>
+            <%= form_with(url: password_resets_path, scope: :password_reset, class: "cs-form") do |f| %>
+                <%= f.email_field :email, placeholder: "Email address", class: "cs-input", id:"cs-email-302-1612" %>
+                <%= f.submit "Submit", class: "cs-button-solid cs-submit" %>
+            <% end %>
+        </div>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg">
+        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg">
+        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg" alt="water" width="1920" height="486" aria-hidden="true">
+    </picture>
+    <div class="cs-wrapper">
+        <img class="cs-fish cs-fish1" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/left-fish.svg" alt="fish" width="1920" height="486" aria-hidden="true">
+        <img class="cs-fish cs-fish1" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/right-fish.svg" alt="fish" width="1920" height="486" aria-hidden="true">
+    </div>
+</section>
+                            
