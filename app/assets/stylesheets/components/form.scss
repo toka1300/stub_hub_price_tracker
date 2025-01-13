@@ -476,6 +476,13 @@
 
         .cs-form {
             flex-direction: row;
+            &.reset-form {
+                flex-direction: column;
+
+                #error_explanation li {
+                    color: var(--bodyTextColorWhite) !important;
+                }
+            }
         }
 
         .cs-input {

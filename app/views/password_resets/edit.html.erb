@@ -1,2 +1,31 @@
-<h1>PasswordResets#edit</h1>
-<p>Find me in app/views/password_resets/edit.html.erb</p>
+<% provide(:title, "Reset password") %>
+
+<section id="cta-1612">
+    <div class="cs-container">
+        <div class="cs-content">
+            <h2 class="cs-title">Reset Your Password</h2>
+            <p class="cs-text">
+                Enter your new password below to have it reset.
+            </p>
+            <%= form_with(model: @user, url: password_reset_path(params[:id]), class: "cs-form reset-form") do |f| %>
+                <%= render "shared/error_messages" %>
+
+                <%= hidden_field_tag :email, @user.email %>
+                <%= f.text_field :password, placeholder: "New Password", class: "cs-input", id:"cs-email-302-1612" %>
+                <%= f.text_field :password_confirmation, placeholder: "Password Confirmation", class: "cs-input", id:"cs-email-302-1612" %>
+                <%= f.submit "Submit", class: "cs-button-solid cs-submit" %>
+            <% end %>
+        </div>
+    </div>
+    <!--Background Image-->
+    <picture class="cs-background">
+        <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg">
+        <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg">
+        <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Landscapes/underwater.jpg" alt="water" width="1920" height="486" aria-hidden="true">
+    </picture>
+    <div class="cs-wrapper">
+        <img class="cs-fish cs-fish1" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/left-fish.svg" alt="fish" width="1920" height="486" aria-hidden="true">
+        <img class="cs-fish cs-fish1" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/right-fish.svg" alt="fish" width="1920" height="486" aria-hidden="true">
+    </div>
+</section>
+                            
