@@ -6,5 +6,6 @@ class CreatePriceAlerts < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
+    add_index :price_alerts, [ :user_id ]
   end
 end
