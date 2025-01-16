@@ -7,7 +7,8 @@ one:
   live_price_cad: 100
   url: "test.com"
   event_id: 12345
-  live_price_usd: 80
+  live_price_usd: 80,
+  event_type: "Concert"
 
 two:
   name: "Maroon 5"
@@ -16,4 +17,5 @@ two:
   live_price_cad: 19
   url: "url.com"
   event_id: 1241234
-  live_price_usd: 22
+  live_price_usd: 22,
+  event_type: "Concert"
