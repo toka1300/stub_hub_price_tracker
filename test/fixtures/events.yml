@@ -1,21 +1,32 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   name: "Nickelback"
   date: 2024-12-03
   venue: "Corel Center"
   live_price_cad: 100
   url: "test.com"
-  event_id: 12345
-  live_price_usd: 80,
+  event_id: "stub123"
+  live_price_usd: 80
   event_type: "Concert"
+  image_url: "http://example.com/image.jpg"
 
 two:
   name: "Maroon 5"
-  date: 2024-12-03
+  date: 2025-02-03
   venue: "ACC"
   live_price_cad: 19
   url: "url.com"
-  event_id: 1241234
-  live_price_usd: 22,
+  event_id: "stub456"
+  live_price_usd: 22
   event_type: "Concert"
+  image_url: "http://example.com/image.jpg"
+
+three:
+  name: "Toronto Maple Leafs @ Dallas Stars"
+  date: 2025-12-03
+  venue: "Dallas Arena"
+  live_price_cad: 109
+  url: "url.com"
+  event_id: "stub789"
+  live_price_usd: 99
+  event_type: "Sports"
+  image_url: "http://example.com/image.jpg"

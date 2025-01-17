@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "Casey", email: "casey@casey.com",
                      password: "password", password_confirmation: "password")
+    @event = events(:one)
   end
 
   test "should be valid" do
@@ -65,5 +66,13 @@ class UserTest < ActiveSupport::TestCase
 
   test "authenticated? should return false for a user with a nil digest" do
     assert_not @user.authenticated?(:remember, "")
+  end
+
+  test "destroying user should destroy associated price alerts" do
+    @user.save
+    price_alert = @user.price_alerts.build(alert_price: 10, event_id: @event.id)
+    price_alert = @user.price_alerts.create!(alert_price: 10, event_id: @event.id)
+    @user.destroy
+    assert price_alert.destroyed?
   end
 end
