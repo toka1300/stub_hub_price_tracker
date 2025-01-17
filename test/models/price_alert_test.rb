@@ -3,8 +3,9 @@ require "test_helper"
 class PriceAlertTest < ActiveSupport::TestCase
   def setup
     @user = users(:casey)
-    # @price_alert = PriceAlert.new(alert_price: 10, user_id: @user.id)
-    @price_alert = @user.price_alerts.build(alert_price: 10, user_id: @user.id)
+    @event = events(:one)
+    @price_alert = PriceAlert.new(alert_price: 10, user_id: @user.id)
+    puts @price_alert
   end
 
   test "should be valid" do
