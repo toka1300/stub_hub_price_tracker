@@ -1,7 +1,6 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
+require "database_cleaner"
+
+DatabaseCleaner.clean_with(:truncation)
 
 # db/seeds.rb
 
@@ -27,7 +26,7 @@ User.create!(name:  "Casey Tokarchuk",
                activated_at: Time.zone.now)
 end
 
-Event.create([
+events = [
   {
     name: "Concert of the Century",
     date: "2024-12-15",
@@ -61,4 +60,23 @@ Event.create([
     event_id: "event003",
     image_url: "https://images.pexels.com/photos/26840203/pexels-photo-26840203/free-photo-of-ice-hockey-game.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
-])
+]
+
+50.times do
+  rand_number = rand(0..2)
+  Event.create!(events[rand_number])
+end
+
+20.times do
+  User.first.price_alerts.create!(
+  event_id: rand(1..3),
+  alert_price: rand(125..350)
+  )
+end
+
+5.times do
+  User.second.price_alerts.create!(
+  event_id: rand(1..3),
+  alert_price: rand(125..350)
+  )
+end

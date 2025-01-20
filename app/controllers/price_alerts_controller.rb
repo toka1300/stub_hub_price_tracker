@@ -1,6 +1,6 @@
 class PriceAlertsController < ApplicationController
   def index
-    @price_alerts = PriceAlert.all
+    @price_alerts = PriceAlert.all.paginate(page: params[:page])
   end
 
   def show
