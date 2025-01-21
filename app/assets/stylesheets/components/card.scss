@@ -9,6 +9,10 @@
 .price-alert-card {
     list-style-type: none;
     margin-bottom: 1rem;
+    text-decoration: none;
+    :hover {
+        text-decoration: none;
+    }
 
     img {
         width: 16rem

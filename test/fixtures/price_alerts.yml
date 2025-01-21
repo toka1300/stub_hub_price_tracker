@@ -2,16 +2,21 @@ two:
   alert_price: 15
   user: casey
   event: two
-  alert_user: true
 
 three:
   alert_price: 20
   user: casey
   event: three
-  alert_user: true
     
 nearest_event:
   alert_price: 10
   user: casey
   event: one
-  alert_user: true
+
+# To test price_alerts layout
+<% 10.times do |n| %>
+price_alert_<%=n%>:
+  alert_price: <%= rand(10..500) %>
+  user: archer
+  event: <%= ["one", "two", "three"].sample %>
+<% end %>

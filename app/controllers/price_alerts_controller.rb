@@ -1,6 +1,7 @@
 class PriceAlertsController < ApplicationController
+  include SessionsHelper
   def index
-    @price_alerts = PriceAlert.all.paginate(page: params[:page])
+    @price_alerts = PriceAlert.where(user_id: current_user)
   end
 
   def show

@@ -1,14 +1,15 @@
-<!-- ============================================ -->
-<!--                  Cards                       -->
-<!-- ============================================ -->
+<% provide(:title, "Home") %>
 
 <div class="container">
+    <%= form_with do |form| %>
+        <%= form.search_field :query %>
+        <%= form.submit "Add Price Alert" %>
+    <% end %>
     <%= link_to 'Add Price Alert', new_price_alert_path %>
     <div><%= link_to 'Add New Event', new_event_path %></div>
     <h2 class="cs-title">Sports</h2>
     <ul class="price-alerts">
         <%= render @price_alerts %>
     </ul>
-    <%= will_paginate @events %>
 </div>
                                 

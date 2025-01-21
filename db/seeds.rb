@@ -26,6 +26,8 @@ User.create!(name:  "Casey Tokarchuk",
                activated_at: Time.zone.now)
 end
 
+# Events
+
 events = [
   {
     name: "Concert of the Century",
@@ -67,14 +69,15 @@ events = [
   Event.create!(events[rand_number])
 end
 
-20.times do
+# Price Alerts
+60.times do
   User.first.price_alerts.create!(
   event_id: rand(1..3),
   alert_price: rand(125..350)
   )
 end
 
-5.times do
+20.times do
   User.second.price_alerts.create!(
   event_id: rand(1..3),
   alert_price: rand(125..350)
