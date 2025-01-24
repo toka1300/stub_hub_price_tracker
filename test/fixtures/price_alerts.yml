@@ -1,3 +1,8 @@
+one:
+  alert_price: 25
+  user: casey
+  event: two
+
 two:
   alert_price: 15
   user: casey

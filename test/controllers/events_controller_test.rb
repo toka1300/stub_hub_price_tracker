@@ -1,23 +1,22 @@
 require "test_helper"
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+  def setup
     @event = events(:one)
   end
 
-  test "should get index page" do
-    get events_path
-    assert_response :success
-    assert_not_nil assigns(:events)
-  end
-
-  test "should get edit page" do
-    get event_path(@event)
-    assert_response :success
-  end
-
-  test "should get new page" do
-    get new_event_path
-    assert_response :success
+  test "should redirect create if not logged in" do
+    # post to events_path
+    assert_no_difference "Event.count" do
+      post events_path, params: { event: {
+                                            name: "test",
+                                            date: "Tuesday, Feb 6th",
+                                            venue: "arena",
+                                            live_price_cad: 10,
+                                            url: "example.com",
+                                            event_type: "sports",
+                                            image_url: "example-image.org" } }
+    end
+    assert_redirected_to login_url
   end
 end

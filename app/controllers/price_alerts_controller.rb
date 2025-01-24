@@ -1,5 +1,7 @@
 class PriceAlertsController < ApplicationController
   include SessionsHelper
+  before_action :logged_in_user, only: [ :create, :destroy ]
+
   def index
     @price_alerts = PriceAlert.where(user_id: current_user)
   end
