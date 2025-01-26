@@ -8,7 +8,7 @@
                 Enter your new password below to have it reset.
             </p>
             <%= form_with(model: @user, url: password_reset_path(params[:id]), class: "cs-form reset-form") do |f| %>
-                <%= render "shared/error_messages" %>
+                <%= render "shared/error_messages", object: f.object %>
 
                 <%= hidden_field_tag :email, @user.email %>
                 <%= f.text_field :password, placeholder: "New Password", class: "cs-input", id:"cs-email-302-1612" %>

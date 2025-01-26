@@ -1,0 +1,23 @@
+<section class="temp-pages">
+    <div class="container">
+        <% if logged_in? %>
+            <h1>Add Price Alert</h1>
+            <%= render "shared/price_alert_form", price_alert: @price_alert %>
+                <%# Add this part back in when adding search ability %>
+                <% if false %>
+                    <%= form_with do |form| %>
+                        <%= form.search_field :query %>
+                        <%= form.submit "Add Price Alert" %>
+                    <% end %>
+                <% end %>
+                <%= link_to 'Add Price Alert', new_price_alert_path %>
+                <div><%= link_to 'Add New Event', new_event_path %></div>
+                <h2 class="cs-title">Sports</h2>
+                <ul class="price-alerts">
+                    <%= render @price_alerts %>
+                </ul>
+        <% else%>
+            <%= render "static_pages/logged_out_home" %>
+        <% end %>
+    </div>
+</section>

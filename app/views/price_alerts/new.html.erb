@@ -1,6 +1,10 @@
 <section class="temp-pages">
     <div class="container">
-        <h1>Add Price Alert</h1>
-        <%= render "form", price_alert: @price_alert %>
+        <% if logged_in? %>
+            <h1>Add Price Alert</h1>
+            <%= render "form", price_alert: @price_alert %>
+        <% else%>
+            <%= render "logged_out_home" %>
+        <% end %>
     </div>
 </section>

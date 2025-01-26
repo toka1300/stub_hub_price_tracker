@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   post "/login",     to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
 
-  resources :events, :price_alerts, :users
+  resources :events, :users
   resources :account_activations, only: [ :edit ]
   resources :password_resets, only: [ :new, :create, :edit, :update ]
-  root "price_alerts#index"
+  resources :price_alerts, only: [ :create, :destroy ]
+  root "static_pages#home"
 end
