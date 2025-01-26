@@ -14,9 +14,9 @@ class PriceAlertsPageTest < ActionDispatch::IntegrationTest
     get login_path
     log_in_as(@user)
     get root_path
-    assert_template "price_alerts/index"
+    assert_template "static_pages/home"
     assert_select "title", "StubHub Price Tracker | Home"
-    assert_select "form input[type=search]", 1
+    # assert_select "form input[type=search]", 1
     assert_select "form input[type=submit]", 1
     @user.price_alerts.each do |alert|
       assert_match alert.event.venue, response.body

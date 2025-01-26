@@ -20,7 +20,8 @@ class PriceAlertsController < ApplicationController
       flash[:success] = "Price alert saved!"
       redirect_to root_url
     else
-      render :new, status: :unprocessable_entity
+      @price_alerts = PriceAlert.where("user_id = ?", current_user)
+      render "static_pages/home", status: :unprocessable_entity
     end
   end
 

@@ -1,3 +1,5 @@
+<% provide(:title, "Home") %>
+
 <section class="temp-pages">
     <div class="container">
         <% if logged_in? %>
@@ -10,11 +12,9 @@
                         <%= form.submit "Add Price Alert" %>
                     <% end %>
                 <% end %>
-                <%= link_to 'Add Price Alert', new_price_alert_path %>
-                <div><%= link_to 'Add New Event', new_event_path %></div>
                 <h2 class="cs-title">Sports</h2>
                 <ul class="price-alerts">
-                    <%= render @price_alerts %>
+                    <%= render @price_alerts if @price_alerts.any? %>
                 </ul>
         <% else%>
             <%= render "static_pages/logged_out_home" %>
