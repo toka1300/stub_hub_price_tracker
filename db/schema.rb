@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_07_140951) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_29_025322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_07_140951) do
     t.string "venue"
     t.integer "live_price_cad"
     t.string "url"
-    t.string "event_id"
+    t.string "stubhub_id"
     t.integer "live_price_usd"
     t.string "event_type"
     t.string "image_url"

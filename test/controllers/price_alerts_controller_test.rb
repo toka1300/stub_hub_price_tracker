@@ -2,6 +2,8 @@ require "test_helper"
 
 class PriceAlertsControllerTest < ActionDispatch::IntegrationTest
   def setup
+    @main_user = users(:casey)
+    @other_user = users(:archer)
     @price_alert = price_alerts(:one)
   end
 
@@ -23,5 +25,13 @@ class PriceAlertsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_response :see_other
     assert_redirected_to login_url
+  end
+
+  test "cannot delete other user's price alert" do
+    log_in_as(@other_user)
+    assert_no_difference "PriceAlert.count" do
+      delete price_alert_path(@price_alert)
+    end
+    assert_redirected_to root_url
   end
 end

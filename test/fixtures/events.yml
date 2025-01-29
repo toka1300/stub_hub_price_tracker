@@ -4,7 +4,7 @@ one:
   venue: "Corel Center"
   live_price_cad: 100
   url: "test.com"
-  event_id: "stub123"
+  stubhub_id: "stub123"
   live_price_usd: 80
   event_type: "Concert"
   image_url: "http://example.com/image.jpg"
@@ -15,7 +15,7 @@ two:
   venue: "ACC"
   live_price_cad: 19
   url: "url.com"
-  event_id: "stub456"
+  stubhub_id: "stub456"
   live_price_usd: 22
   event_type: "Concert"
   image_url: "http://example.com/image.jpg"
@@ -26,7 +26,7 @@ three:
   venue: "Dallas Arena"
   live_price_cad: 109
   url: "url.com"
-  event_id: "stub789"
+  stubhub_id: "stub789"
   live_price_usd: 99
   event_type: "Sports"
   image_url: "http://example.com/image.jpg"

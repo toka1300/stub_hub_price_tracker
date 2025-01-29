@@ -21,6 +21,7 @@ class PriceAlertsController < ApplicationController
       flash[:success] = "Price alert saved!"
       redirect_to root_url
     else
+      puts @price_alert.errors.full_messages  # Debug output
       @price_alerts = PriceAlert.where("user_id = ?", current_user)
       render "static_pages/home", status: :unprocessable_entity
     end
