@@ -5,13 +5,13 @@ DatabaseCleaner.clean_with(:truncation)
 # db/seeds.rb
 
 # Create a main sample user.
-User.create!(name:  "Casey Tokarchuk",
-             email: "caseytokarchuk@gmail.com",
+User.create!(name:                  "Casey Tokarchuk",
+             email:                 "caseytokarchuk@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now)
+             admin:                  true,
+             activated:              true,
+             activated_at:           Time.zone.now)
 
 # Generate a bunch of additional users.
 99.times do |n|
@@ -26,7 +26,7 @@ User.create!(name:  "Casey Tokarchuk",
                activated_at: Time.zone.now)
 end
 
-# Events
+# -------- Events ----------
 
 events = [
   {
@@ -37,7 +37,7 @@ events = [
     live_price_usd: 110,
     url: "https://www.stubhub.com/concert-of-the-century",
     event_type: "sports",
-    event_id: "event001",
+    stubhub_id: "event001",
     image_url: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
@@ -48,7 +48,7 @@ events = [
     live_price_usd: 150,
     url: "https://www.stubhub.com/broadway-musical-night",
     event_type: "sports",
-    event_id: "event002",
+    stubhub_id: "event002",
     image_url: "https://images.pexels.com/photos/11534855/pexels-photo-11534855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
@@ -59,7 +59,7 @@ events = [
     live_price_usd: 220,
     url: "https://www.stubhub.com/sports-finals",
     event_type: "sports",
-    event_id: "event003",
+    stubhub_id: "event003",
     image_url: "https://images.pexels.com/photos/26840203/pexels-photo-26840203/free-photo-of-ice-hockey-game.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
 ]
