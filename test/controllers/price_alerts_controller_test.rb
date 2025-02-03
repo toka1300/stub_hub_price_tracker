@@ -34,4 +34,12 @@ class PriceAlertsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "correct user can delete price alert" do
+    log_in_as(@main_user)
+    assert_difference "PriceAlert.count", -1 do
+      delete price_alert_path(@price_alert)
+    end
+    assert_redirected_to root_url
+  end
 end

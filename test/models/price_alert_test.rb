@@ -16,6 +16,11 @@ class PriceAlertTest < ActiveSupport::TestCase
     assert_not @price_alert.valid?
   end
 
+  test "event id should be present" do
+    @price_alert.event_id = nil
+    assert_not @price_alert.valid?
+  end
+
   test "price should be present" do
     @price_alert.alert_price = "   "
     assert_not @price_alert.valid?

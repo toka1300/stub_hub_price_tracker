@@ -43,8 +43,10 @@ class PriceAlertsController < ApplicationController
 
   def destroy
     @price_alert.destroy
-    flash[:success] = "Price alert deleted"
-    redirect_to root_path, status: :see_other
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove("price-alert-#{@price_alert.id}") }
+      format.html { redirect_to root_path, status: :see_other }
+    end
   end
 
   private
