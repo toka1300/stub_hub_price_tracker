@@ -9,21 +9,23 @@ class PriceAlertsInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@main_user)
   end
 
+  # TODO: Test incorrect stubhub url
+
   test "should show errors but not create alert on invalid submission" do
     assert_no_difference "PriceAlert.count" do
       post price_alerts_path, params: { price_alert: {
-                                                      event_id: "",
-                                                      user_id: 1,
+                                                      stubhub_url: "haha.com",
                                                       alert_price: 10 } }
     end
-    assert_select "div#error_explanation"
+    follow_redirect!
+    assert_select "div.alert.alert-danger", text: /Incorrect StubHub url/
   end
 
   test "should create an alert on valid submission" do
     assert_difference "PriceAlert.count", 1 do
       post price_alerts_path, params: { price_alert: {
                                                       user_id: 1,
-                                                      event_id: @event.id,
+                                                      stubhub_url: "https://www.stubhub.ca/chicago-the-band-milwaukee-tickets-7-4-2025/event/156455440",
                                                       alert_price: 12345 } }
     end
     assert_redirected_to root_url
@@ -32,7 +34,7 @@ class PriceAlertsInterfaceTest < ActionDispatch::IntegrationTest
   test "main user price alert should show up" do
     post price_alerts_path, params: { price_alert: {
       user_id: 1,
-      event_id: @event.id,
+      stubhub_url: "https://www.stubhub.ca/chicago-the-band-milwaukee-tickets-7-4-2025/event/156455440",
       alert_price: 12345 } }
     @main_user.reload
     @main_user.price_alerts.reload
@@ -43,7 +45,7 @@ class PriceAlertsInterfaceTest < ActionDispatch::IntegrationTest
   test "other user should not see price alert created by main user" do
     post price_alerts_path, params: { price_alert: {
       user_id: 1,
-      event_id: @event.id,
+      stubhub_url: "https://www.stubhub.ca/chicago-the-band-milwaukee-tickets-7-4-2025/event/156455440",
       alert_price: 12345 } }
     log_in_as @other_user
     get root_path

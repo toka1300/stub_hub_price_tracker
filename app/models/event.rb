@@ -5,5 +5,4 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :venue, presence: true
   validates :live_price_cad, presence: true, numericality: { only_integer: true }
-  validates :event_type, presence: true
 end

@@ -33,9 +33,4 @@ class EventTest < ActiveSupport::TestCase
     @event.live_price_cad = "wrong"
     assert_not @event.valid?
   end
-
-  test "event type should not be blank" do
-    @event.event_type = ""
-    assert_not @event.valid?
-  end
 end

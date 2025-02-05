@@ -1,5 +1,9 @@
+require "json"
+require "uri"
+
 class PriceAlertsController < ApplicationController
   include SessionsHelper
+  include PriceAlertsHelper
   before_action :logged_in_user, only: [ :create, :destroy ]
   before_action :correct_user, only: :destroy
 
@@ -16,7 +20,23 @@ class PriceAlertsController < ApplicationController
   # end
 
   def create
-    @price_alert = current_user.price_alerts.build(alert_params)
+    stubhub_url = alert_params[:stubhub_url]
+    unless stubhub_url.match(/\/event\/(\d+)/)
+      flash[:danger] = "Incorrect StubHub url entered, please copy the entire event including the event id"
+      redirect_to root_url
+      return
+    end
+    stubhub_id = stubhub_url.match(/\/event\/(\d+)/)[1]
+
+    event = Event.find_by(stubhub_id: stubhub_id)
+    if event
+      puts "Event already exists in the database"
+    else
+      event_object = fetch_event_data(stubhub_url)
+      event = Event.create!(event_object)
+    end
+
+    @price_alert = current_user.price_alerts.build(alert_price: alert_params[:alert_price], event_id: event.id)
     if @price_alert.save
       flash[:success] = "Price alert saved!"
       redirect_to root_url
@@ -51,7 +71,7 @@ class PriceAlertsController < ApplicationController
 
   private
   def alert_params
-    params.require(:price_alert).permit(:event_id, :user_id, :alert_price)
+    params.require(:price_alert).permit(:alert_price, :stubhub_url)
   end
 
   def correct_user

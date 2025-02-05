@@ -1,4 +1,4 @@
-<% if @price_alert.errors.any? %>
+<% if @price_alert&.errors&.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@price_alert.errors.count, "error") %> prohibited this price_alert from being saved:</h2>
     <ul>
@@ -10,17 +10,34 @@
 <% end %>
 
 <%= form_with(model: price_alert) do |form| %>
-    <div>
-        <%= form.label :event_id %>
-        <%= form.text_field :event_id %>
-    </div>
-    <div>
-        <%= form.label :user_id %>
-        <%= form.text_field :user_id %>
-    </div>
-    <div>
-        <%= form.label :alert_price %>
-        <%= form.number_field :alert_price %>
-    </div>
-    <%= form.submit %>
+
+
+  <div>
+    <%= form.label :stubhub_url %>
+    <%= form.text_field :stubhub_url %>
+  </div>
+  <div>
+    <%= form.label :alert_price %>
+    <%= form.number_field :alert_price %>
+  </div>
+  <%= form.submit %>
 <% end %>
+
+
+<% if false %>
+  <%= form_with(model: price_alert) do |form| %>
+      <div>
+          <%= form.label :event_id %>
+          <%= form.text_field :event_id %>
+      </div>
+      <div>
+          <%= form.label :user_id %>
+          <%= form.text_field :user_id %>
+      </div>
+      <div>
+          <%= form.label :alert_price %>
+          <%= form.number_field :alert_price %>
+      </div>
+      <%= form.submit %>
+  <% end %>
+<% end%>
