@@ -7,14 +7,14 @@ class PriceAlertsControllerTest < ActionDispatch::IntegrationTest
     @price_alert = price_alerts(:one)
   end
 
-    test "should get root" do
-      get root_path
-      assert_response :success
-    end
+  test "should get root" do
+    get root_path
+    assert_response :success
+  end
 
   test "should redirect create when not logged in" do
     assert_no_difference "PriceAlert.count" do
-      post price_alerts_path, params: { price_alert: { alert_price: 10, event_id: 1, user_id: 1 } }
+      post price_alerts_path, params: { price_alert: { alert_price: 10, stubhub_url: "https://www.stubhub.ca/lainey-wilson-toronto-tickets-9-25-2025/event/157155631" } }
     end
     assert_redirected_to login_url
   end

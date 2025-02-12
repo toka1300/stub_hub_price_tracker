@@ -33,7 +33,12 @@ class PriceAlertsController < ApplicationController
       puts "Event already exists in the database"
     else
       event_object = fetch_event_data(stubhub_url)
-      event = Event.create!(event_object)
+      if event_object
+        event = Event.create!(event_object)
+      else
+        flash[:danger] = "Invalid stubhub url, please check if the event has already passed"
+        redirect_to root_url and return
+      end
     end
 
     @price_alert = current_user.price_alerts.build(alert_price: alert_params[:alert_price], event_id: event.id)

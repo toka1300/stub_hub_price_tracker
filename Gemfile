@@ -68,3 +68,6 @@ group :test do
   gem "guard-minitest",           "2.4.6"
   gem "rails-controller-testing"
 end
+
+gem "sidekiq", "~> 7.3"
+gem "sidekiq-cron", "~> 2.1"
