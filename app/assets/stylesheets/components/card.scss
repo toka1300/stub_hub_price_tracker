@@ -10,6 +10,10 @@
     list-style-type: none;
     margin-bottom: 1rem;
     text-decoration: none;
+    &.alert-user {
+        background-color: rgb(202, 166, 166);
+    }
+
     :hover {
         text-decoration: none;
     }

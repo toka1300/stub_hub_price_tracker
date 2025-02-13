@@ -41,7 +41,12 @@ class PriceAlertsController < ApplicationController
       end
     end
 
-    @price_alert = current_user.price_alerts.build(alert_price: alert_params[:alert_price], event_id: event.id)
+
+    alert_user = alert_params[:alert_price].to_i < event.live_price_cad
+    @price_alert = current_user.price_alerts.build(
+                                                    alert_price: alert_params[:alert_price],
+                                                    event_id: event.id,
+                                                    alert_user: alert_user)
     if @price_alert.save
       flash[:success] = "Price alert saved!"
       redirect_to root_url

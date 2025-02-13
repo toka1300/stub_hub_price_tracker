@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "price-alert-#{price_alert.id}" do %>
-  <li class="price-alert-card">
+  <li class="price-alert-card <%= price_alert.alert_user ? "alert-user" : "" %>">
     <h3 class="cs-h3"><%= price_alert.event.name %></h3>
     <ul>
       <%= image_tag(price_alert.event.image_url) %>
