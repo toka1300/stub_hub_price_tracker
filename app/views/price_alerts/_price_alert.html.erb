@@ -1,16 +1,14 @@
-<%= turbo_frame_tag "price-alert-#{price_alert.id}" do %>
-  <li class="price-alert-card <%= price_alert.alert_user ? "alert-user" : "" %>">
-    <h3 class="cs-h3"><%= price_alert.event.name %></h3>
-    <ul>
-      <%= image_tag(price_alert.event.image_url) %>
-      <li> <strong>Date: </strong> <%= price_alert.event.date %> </li>
-      <li> <strong>Venue: </strong> <%= price_alert.event.venue %> </li>
-      <li> <strong>Live Price: </strong> <%= price_alert.event.live_price_cad %> </li>
-      <li> <strong>Alert Price: </strong> <%= price_alert.alert_price %> </li>
-      <li> <strong>User Email: </strong> <%= price_alert.user.email %> </li>
-    </ul>
-    <div>
-      <%= button_to "Delete", price_alert_path(price_alert, format: :turbo_stream), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </div>
-  </li>
+<%= turbo_frame_tag "price-alert-#{price_alert.id}", class: "price-alert-card #{price_alert.alert_user ? "alert-user" : ""}" do %>
+  <h3 class="cs-h3"><%= price_alert.event.name %></h3>
+  <ul>
+    <%= image_tag(price_alert.event.image_url) %>
+    <li> <strong>Date: </strong> <%= price_alert.event.date %> </li>
+    <li> <strong>Venue: </strong> <%= price_alert.event.venue %> </li>
+    <li> <strong>Live Price: </strong> <%= price_alert.event.live_price_cad %> </li>
+    <li> <strong>Alert Price: </strong> <%= price_alert.alert_price %> </li>
+    <li> <strong>User Email: </strong> <%= price_alert.user.email %> </li>
+  </ul>
+  <div>
+    <%= button_to "Delete", price_alert_path(price_alert, format: :turbo_stream), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
 <% end %>

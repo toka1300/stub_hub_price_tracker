@@ -35,7 +35,7 @@ services:
     env: ruby
     region: oregon
     buildCommand: bundle install
-    startCommand: bundle exec sidekiq -e production -C config/sidekiq.yml -r ./config/environment.rb
+    startCommand: bundle exec sidekiq -e production -r ./config/environment.rb
     autoDeploy: false
     envVars:
       - key: REDIS_URL

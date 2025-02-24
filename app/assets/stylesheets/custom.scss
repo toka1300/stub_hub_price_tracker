@@ -194,3 +194,11 @@ body {
     margin: 2rem 1rem;
     padding: 0.25rem 1rem;
   }
+
+//   --------HOME--------
+
+.price-alerts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 18rem);
+    grid-gap: 1rem;
+}
