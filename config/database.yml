@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: stub_hub_price_tracker_rails_production
-  username: stub_hub_price_tracker_rails
-  password: <%= ENV["STUB_HUB_PRICE_TRACKER_RAILS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  # database: stub_hub_price_tracker_rails_production
+  # username: stub_hub_price_tracker_rails
+  # password: <%= ENV["STUB_HUB_PRICE_TRACKER_RAILS_DATABASE_PASSWORD"] %>

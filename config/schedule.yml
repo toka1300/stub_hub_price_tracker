@@ -1,5 +1,5 @@
 update_live_price:
-  cron: "*/5 * * * *" # Every 5 minutes
+  cron: "*/10 * * * *" # Every 5 minutes
   class: "UpdateLivePrice"
 
 delete_expired_event:

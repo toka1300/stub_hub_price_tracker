@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [ :edit, :update, :index, :destroy ]
   before_action :correct_user,   only: [ :edit, :update ]
-  before_action :admin_user,   only: [ :destroy ]
+  before_action :admin_user,     only: [ :destroy ]
 
   def show
     @user = User.find(params[:id])
@@ -51,10 +51,11 @@ class UsersController < ApplicationController
   end
 
   # ----------Before filters----------
-
+  #
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])
+    puts @user
     redirect_to(root_url, status: :see_other) unless current_user?(@user)
   end
 
