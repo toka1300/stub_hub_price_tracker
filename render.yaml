@@ -1,12 +1,12 @@
 databases:
-  - name: mysite
+  - name: stubhub_database
     databaseName: mysite
     user: mysite
     plan: free
 
 services:
   - type: web
-    name: mysite
+    name: stubhub_price_tracker
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
