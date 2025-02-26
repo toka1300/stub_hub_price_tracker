@@ -1,6 +1,9 @@
 module PriceAlertsHelper
   def fetch_event_data(url)
-    response = HTTParty.get(url)
+    response = HTTParty.get(url,   headers: {
+      "Accept-Language" => "en-CA",
+      "User-Agent" => "Mozilla/5.0"
+    })
     json_response = response.parsed_response
     parsed_json = json_response.match(/<script id="index-data" type="application\/json">\s*(.*?)\s*<\/script>/)[1]
     json_data = JSON.parse(parsed_json)
