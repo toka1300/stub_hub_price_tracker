@@ -5,6 +5,7 @@ module PriceAlertsHelper
     parsed_json = json_response.match(/<script id="index-data" type="application\/json">\s*(.*?)\s*<\/script>/)[1]
     json_data = JSON.parse(parsed_json)
     if json_data["errorMessage"] != "Page Not Found"
+      puts json_data
       {
         name: json_data["eventName"],
         date: json_data["formattedEventDateTime"],
