@@ -14,7 +14,8 @@ module PriceAlertsHelper
         name: json_data["eventName"],
         date: json_data["formattedEventDateTime"],
         venue: json_data["venueName"],
-        live_price_cad: (json_data["grid"]["minPrice"] * exchange_rate).round,
+        live_price_cad: 1000,
+        # live_price_cad: (json_data["grid"]["minPrice"] * exchange_rate).round, #TODO: Put this line back in
         url: url,
         stubhub_id: json_data["eventId"],
         image_url: json_data["categoryImageUrl"]

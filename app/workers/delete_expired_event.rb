@@ -3,6 +3,7 @@ class DeleteExpiredEvent
 
   def perform
     completed_events = Event.completed
+    puts "Completed Events: ------->#{completed_events}"
     if completed_events.empty?
       puts "No past events to delete"
     else

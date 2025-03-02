@@ -7,6 +7,6 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :venue, presence: true
   validates :live_price_cad, presence: true, numericality: { only_integer: true }
-  scope :expired, -> { where("updated_at < ?", 15.minutes.ago) }
+  scope :expired, -> { where("updated_at < ?", 1.minutes.ago) }
   scope :completed, -> { where("date < ?", Date.today) }
 end

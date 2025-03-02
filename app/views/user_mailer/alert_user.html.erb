@@ -1,0 +1,7 @@
+<h1>Price Drop On Your Tickets!</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>The price has fallen to $<%= @price_alert.event.live_price_cad %> for your <%= @price_alert.event.name %> Tickets!</p>
+
+<p>Follow this link to access the event on StubHub directly: <%= @price_alert.event.url %></p>

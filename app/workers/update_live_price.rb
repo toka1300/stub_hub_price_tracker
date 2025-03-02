@@ -6,7 +6,7 @@ class UpdateLivePrice
 
     if expired_events.count > 0
       expired_events.each do |event|
-        puts event.name
+        puts "Fetching price for #{event.name}"
         old_price = event.live_price_cad
         fetch_live_price(event)
         new_price = event.live_price_cad
@@ -25,12 +25,12 @@ class UpdateLivePrice
       parsed_json = json_response.match(/<script id="index-data" type="application\/json">\s*(.*?)\s*<\/script>/)[1]
       json_data = JSON.parse(parsed_json)
       if json_data["errorMessage"] != "Page Not Found"
-        min_price = json_data["grid"]["minPrice"].round
-        # puts "----------Min Price: #{min_price}"
+        currency = json_data["grid"]["formattedMinPrice"][0]
+        exchange_rate = currency == "C" ? 1 : usd_to_cad
+        min_price = (json_data["grid"]["minPrice"] * exchange_rate).round
         event.live_price_cad = min_price
         event.save!
         event.touch unless event.changed?
-        # Need a check to say, if alert price < live price, then put class on.
       end
     end
 
@@ -38,9 +38,12 @@ class UpdateLivePrice
       puts "price has dropped on #{event.name}, checking alerts"
       alerts = PriceAlert.where(event_id: event)
       alerts.each do |alert|
+        puts "Checking alert status of #{alert}"
         if event.live_price_cad < alert.alert_price
+          puts "It has fallen below alert set for #{alert}"
           alert.alert_user = true
           alert.save!
+          UserMailer.alert_user(alert.user, alert).deliver_now
         end
       end
     end
