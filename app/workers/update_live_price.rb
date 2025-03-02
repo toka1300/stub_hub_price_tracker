@@ -27,7 +27,9 @@ class UpdateLivePrice
       if json_data["errorMessage"] != "Page Not Found"
         currency = json_data["grid"]["formattedMinPrice"][0]
         exchange_rate = currency == "C" ? 1 : usd_to_cad
+        puts exchange_rate
         min_price = (json_data["grid"]["minPrice"] * exchange_rate).round
+        puts min_price
         event.live_price_cad = min_price
         event.save!
         event.touch unless event.changed?
@@ -42,7 +44,7 @@ class UpdateLivePrice
         # puts "Here are the alerts I need to update:#{alerts.to_a}"
         Rails.logger.info "Here are the alerts I need to update: #{alerts.to_a}"
         alerts.each do |alert|
-          puts "Checking alert status of #{alert}"
+          puts "Checking alert status of #{alert.id}"
           if event.live_price_cad < alert.alert_price
             puts "It has fallen below alert set for #{alert}"
             alert.alert_user = true
@@ -56,5 +58,12 @@ class UpdateLivePrice
         puts e.backtrace.join("\n")
         $stdout.flush
       end
+    end
+
+    def usd_to_cad
+      uri = URI("https://api.exchangerate-api.com/v4/latest/usd")
+      response = Net::HTTP.get(uri)
+      json = JSON.parse(response)
+      json["rates"]["CAD"]
     end
 end
