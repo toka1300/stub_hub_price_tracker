@@ -1,16 +1,22 @@
 <% provide(:title, "Home") %>
 
-<section class="temp-pages">
-    <div class="container">
-        <% if logged_in? %>
-            <h1>Add Price Alert</h1>
-            <%= render "shared/price_alert_form", price_alert: @price_alert %>
-                <h2 class="cs-title">Sports</h2>
-                <ul class="price-alerts">
-                    <%= render @price_alerts if @price_alerts.any? %>
-                </ul>
-        <% else%>
-            <%= render "static_pages/logged_out_home" %>
-        <% end %>
+<!-- ============================================ -->
+<!--                    Price Alerts              -->
+<!-- ============================================ -->
+
+<section id="price-alerts">
+    <div class="cs-container">
+        <div class="cs-content">
+            <% if logged_in? %>
+                <div class="cs-content-flex">
+                    <h1 class="cs-title">Add a Price Alert</h1>
+                    <%= render "shared/price_alert_form", price_alert: @price_alert %>
+                    <h3 class="cs-title">Saved Alerts</h3>
+                </div>
+            <% end%>
+        </div>
+        <ul class="cs-card-group">
+            <%= render @price_alerts if @price_alerts.any? %>
+        </ul>
     </div>
 </section>
