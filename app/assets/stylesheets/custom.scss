@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 :root {
-    --primary: #3A00E5;
+    --primary: #5D29BA;
     --primaryLight: #ffba43;
     --secondary: #ffba43;
     --secondaryLight: #ffba43;
@@ -295,7 +295,7 @@ body {
             position: relative;
             z-index: 1;
             transition: box-shadow .3s, transform .3s;
-            
+
             &.alert-user {
                 background-color: rgb(202, 166, 166);
             }

@@ -42,7 +42,7 @@ class PriceAlertsController < ApplicationController
     end
 
 
-    alert_user = alert_params[:alert_price].to_i < event.live_price_cad
+    alert_user = alert_params[:alert_price].to_i > event.live_price_cad
     @price_alert = current_user.price_alerts.build(
                                                     alert_price: alert_params[:alert_price],
                                                     event_id: event.id,
