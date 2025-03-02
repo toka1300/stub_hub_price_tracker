@@ -4,14 +4,16 @@
           <%= image_tag(price_alert.event.image_url) %>
         </picture>
         <div class="cs-flex">
-            <span class="cs-date"><%= price_alert.event.date %></span>
+            <span class="cs-date"><%= image_tag "svgs/calendar.svg" %><%= price_alert.event.date.strftime("%b %d, %Y") %></span>
             <h3 class="cs-h3"><%= price_alert.event.name %></h3>
             <ul class="cs-item-text">
+              <li> <strong><%= image_tag 'svgs/map-pin' %> </strong> <%= price_alert.event.venue %> </li>
               <li> <strong>Live Price: </strong> $<%= price_alert.event.live_price_cad %> </li>
               <li> <strong>Alert Price: </strong> $<%= price_alert.alert_price %> </li>
-              <li> <strong>Venue: </strong> <%= price_alert.event.venue %> </li>
-              <%= button_to "Delete", price_alert_path(price_alert, format: :turbo_stream), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
             </ul>
         </div>
     </a>
+    <%= button_to price_alert_path(price_alert, format: :turbo_stream), class: "icon-trash", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <%= image_tag 'svgs/trash.svg', alt: 'Delete', width: 32, height: 32 %>
+    <% end %>
 <% end %>

@@ -27,7 +27,7 @@ class UpdateLivePrice
       if json_data["errorMessage"] != "Page Not Found"
         currency = json_data["grid"]["formattedMinPrice"][0]
         exchange_rate = currency == "C" ? 1 : usd_to_cad
-        puts exchange_rate
+        puts "USD: #{json_data["grid"]["minPrice"]}, Exchange Rate: #{exchange_rate}"
         min_price = (json_data["grid"]["minPrice"] * exchange_rate).round
         puts min_price
         event.live_price_cad = min_price
@@ -38,13 +38,9 @@ class UpdateLivePrice
 
     def update_alerts(event)
       begin
-        puts "price has dropped on #{event.name}, checking alerts"; $stdout.flush
+        puts "price has dropped on #{event.name}, checking alerts"
         alerts = PriceAlert.where(event_id: event)
-        puts "Query executed"; $stdout.flush
-        # puts "Here are the alerts I need to update:#{alerts.to_a}"
-        Rails.logger.info "Here are the alerts I need to update: #{alerts.to_a}"
         alerts.each do |alert|
-          puts "Checking alert status of #{alert.id}"
           if event.live_price_cad < alert.alert_price
             puts "It has fallen below alert set for #{alert}"
             alert.alert_user = true

@@ -288,11 +288,11 @@ body {
         }
 
         .cs-item {
+            position: relative;
             text-align: left;
             list-style: none;
             overflow: hidden;
             grid-column: span 12;
-            position: relative;
             z-index: 1;
             transition: box-shadow .3s, transform .3s;
 
@@ -310,6 +310,14 @@ body {
 
                 .cs-h3 {
                     color: var(--primary);
+                }
+
+                .icon-trash {
+                    display: initial;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
                 }
             }
         }
@@ -358,6 +366,9 @@ body {
         }
 
         .cs-date {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
             font-size: calc(16 / 16 * 1rem);
             line-height: 1.2em;
             font-weight: 700;
@@ -368,11 +379,21 @@ body {
             box-sizing: border-box;
             background-color: #D1D3D4;
             color: #1a1a1a;
-            display: inline-block;
             position: absolute;
             left: calc(16 / 16 * 1rem);
             bottom: 100%;
             z-index: 2;
+        }
+
+        .icon-trash {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 2;
+            background-color: transparent;
+            border: none;
+            transition: 0.4s;
         }
 
         .cs-h3 {
