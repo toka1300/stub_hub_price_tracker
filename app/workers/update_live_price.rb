@@ -37,12 +37,14 @@ class UpdateLivePrice
     def update_alerts(event)
       puts "price has dropped on #{event.name}, checking alerts"
       alerts = PriceAlert.where(event_id: event)
+      puts "Here are the alerts I need to update:#{alerts}"
       alerts.each do |alert|
         puts "Checking alert status of #{alert}"
         if event.live_price_cad < alert.alert_price
           puts "It has fallen below alert set for #{alert}"
           alert.alert_user = true
           alert.save!
+          puts "I will send the email now"
           UserMailer.alert_user(alert.user, alert).deliver_now
         end
       end

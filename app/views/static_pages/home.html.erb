@@ -16,7 +16,7 @@
             <% end%>
         </div>
         <ul class="cs-card-group">
-            <%= render @price_alerts if @price_alerts.any? %>
+            <%= render @price_alerts if @price_alerts.present? %>
         </ul>
     </div>
 </section>
