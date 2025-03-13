@@ -319,6 +319,14 @@ body {
                         transform: scale(1.1);
                     }
                 }
+                .icon-edit {
+                    display: initial;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        cursor: pointer;
+                    }
+                }
             }
         }
 
@@ -390,6 +398,17 @@ body {
             position: absolute;
             top: 1rem;
             left: 1rem;
+            z-index: 2;
+            background-color: transparent;
+            border: none;
+            transition: 0.4s;
+        }
+
+        .icon-edit {
+            display: none;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
             z-index: 2;
             background-color: transparent;
             border: none;

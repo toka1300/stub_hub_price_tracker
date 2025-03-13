@@ -2,6 +2,7 @@
 var CSbody = document.querySelector("body");
 const CSnavbarMenu = document.querySelector("#cs-navigation");
 const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+console.log (CShamburgerMenu)
 
 CShamburgerMenu.addEventListener('click', function() {
 	CShamburgerMenu.classList.toggle("cs-active");

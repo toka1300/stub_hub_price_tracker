@@ -1,58 +1,60 @@
-    <header id="cs-navigation">
-        <div class="cs-container">
-          <%= link_to root_path, class: "cs-logo" do %>
-            <%= image_tag 'logo.svg' %>
-          <% end%>
-          <nav class="cs-nav" role="navigation">
-            <!--Mobile Nav Toggle-->
-            <button class="cs-toggle" aria-label="mobile menu toggle">
-              <div class="cs-box" aria-hidden="true">
-                <span class="cs-line cs-line1" aria-hidden="true"></span>
-                <span class="cs-line cs-line2" aria-hidden="true"></span>
-                <span class="cs-line cs-line3" aria-hidden="true"></span>
-              </div>
-            </button>
+<header id="cs-navigation">
+  <div class="cs-container">
+    <%= link_to root_path, class: "cs-logo" do %>
+      <%= image_tag 'logo.svg' %>
+    <% end%>
+    <nav class="cs-nav" role="navigation">
+      <!--Mobile Nav Toggle-->
+      <button class="cs-toggle" aria-label="mobile menu toggle">
+        <div class="cs-box" aria-hidden="true">
+          <span class="cs-line cs-line1" aria-hidden="true"></span>
+          <span class="cs-line cs-line2" aria-hidden="true"></span>
+          <span class="cs-line cs-line3" aria-hidden="true"></span>
+        </div>
+      </button>
 
-            <div class="cs-ul-wrapper">
-              <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                <li class="cs-li">
-                    <%= link_to 'Home', root_path, class: "cs-li-link cs-active" %>
-                </li>
-                <li class="cs-li">
-                    <%= link_to 'Events', events_path, class: "cs-li-link" %>
-                </li>
-                <li class="cs-li">
-                    <%= link_to 'Help', help_path, class: "cs-li-link" %>
-                </li>
-                <li class="cs-li">
-                    <%= link_to 'Contact', contact_path, class: "cs-li-link" %>
-                </li>
-              </ul>
-            </div>
-          </nav>
+      <div class="cs-ul-wrapper">
+        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+          <li class="cs-li">
+              <%= link_to 'Home', root_path, class: "cs-li-link cs-active" %>
+          </li>
+          <li class="cs-li">
+              <%= link_to 'Help', help_path, class: "cs-li-link" %>
+          </li>
           <% if logged_in? %>
-            <li class="cs-li cs-dropdown" tabindex="0">
-              <span class="cs-li-link">Account
-                  <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-red.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-              </span>
-              <ul class="cs-drop-ul">
-                  <li class="cs-drop-li">
-                    <%= link_to "Profile", current_user, class: "cs-li-link cs-drop-link" %>
-                  </li>
-                  <li class="cs-drop-li">
-                    <%= link_to "Settings", edit_user_path(current_user), class: "cs-li-link cs-drop-link" %>
-                  </li>
-                  <li class="cs-drop-li">
-                    <%= link_to "Users", users_path, class: "cs-li-link cs-drop-link" %>
-                  </li>
-                  <li class="cs-drop-li">
-                  <%= button_to "Log out", logout_path, method: :delete, data: { turbo: true },
-                                                        class: "cs-drop-button cs-li-link cs-drop-link" %>
-                  </li>
-              </ul>
+            <li class="cs-li">
+              <%= link_to "Profile", edit_user_path(current_user), class: "cs-li-link" %>
+            </li>
+            <li class="cs-li">
+              <%= button_to "Log out", logout_path, method: :delete, data: { turbo: true },
+                                                    class: "cs-drop-button cs-li-link" %>
             </li>
           <% else %>
             <%= link_to 'Log in/Sign up', login_path, class: "cs-button-solid cs-nav-button" %>
           <% end %>
+        </ul>
       </div>
-    </header>
+    </nav>
+  </div>
+</header>
+
+<% if false %>
+    <% if logged_in? %>
+      <li class="cs-li cs-dropdown" tabindex="0">
+        <span class="cs-li-link">Account
+            <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-red.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+        </span>
+        <ul class="cs-drop-ul">
+            <li class="cs-drop-li">
+              <%= link_to "Profile", edit_user_path(current_user), class: "cs-li-link cs-drop-link" %>
+            </li>
+            <li class="cs-drop-li">
+              <%= button_to "Log out", logout_path, method: :delete, data: { turbo: true },
+                                                    class: "cs-drop-button cs-li-link cs-drop-link" %>
+            </li>
+        </ul>
+      </li>
+    <% else %>
+      <%= link_to 'Log in/Sign up', login_path, class: "cs-button-solid cs-nav-button" %>
+    <% end %>
+<% end %>

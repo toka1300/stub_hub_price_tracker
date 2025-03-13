@@ -1,0 +1,4 @@
+  - Add an event listener to the edit button 
+  - When clicked enter the alert price as an edit field
+  - Put up a modal with a green check and red x
+  - If click checkmark save, otherwise discard

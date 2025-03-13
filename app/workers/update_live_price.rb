@@ -52,7 +52,6 @@ class UpdateLivePrice
       rescue => e
         puts "Error in update_alerts: #{e.message}"
         puts e.backtrace.join("\n")
-        $stdout.flush
       end
     end
 

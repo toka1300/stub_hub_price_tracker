@@ -3,6 +3,5 @@ update_live_price:
   class: "UpdateLivePrice"
 
 delete_expired_event:
-  # cron: "0 0 * * *"   # Runs every day at midnight
-  cron: "*/60 * * * *" # Every 60 minutes
+  cron: "0 0 * * *"   # Runs every day at midnight
   class: "DeleteExpiredEvent"

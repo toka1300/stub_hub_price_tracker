@@ -351,6 +351,17 @@
                 color: #fff;
             }
         }
+
+        .button_to {
+            width: 100%;
+            
+            .cs-drop-button {
+                justify-content: flex-start;
+                border: none;
+                background-color: white;
+                text-align: left;
+            }
+        }
     }
 }
 

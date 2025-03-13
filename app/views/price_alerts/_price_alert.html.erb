@@ -14,6 +14,13 @@
         </div>
     </a>
     <%= button_to price_alert_path(price_alert, format: :turbo_stream), class: "icon-trash", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <%= image_tag 'svgs/trash.svg', alt: 'Delete', width: 32, height: 32 %>
+      <%= image_tag 'svgs/trash.svg', alt: 'Delete icno', width: 32, height: 32 %>
     <% end %>
+    <%= image_tag 'svgs/pencil.svg', alt: 'Edit icon', width: 32, height: 32, class: "icon-edit", id: "edit-#{price_alert.id}" %>
+    <form class="price-edit-form hidden" action="<%= price_alert_path(price_alert) %>" method="post" data-turbo-frame="price_alert_<%= price_alert.id %>">
+      <input type="hidden" name="_method" value="patch">
+      <input type="number" name="price_alert[alert_price]" value="<%= price_alert.alert_price %>" step="0.01">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-secondary cancel-edit" data-id="<%= price_alert.id %>">Cancel</button>
+  </form>
 <% end %>
